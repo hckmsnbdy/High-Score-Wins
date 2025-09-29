@@ -46,8 +46,5 @@ public class HighScoreWins {
         System.out.println("partScore2:" + partScore2);
         System.out.println(" partScore3[2]:" + partScore3[2]);
 
-
-
-
     }
 }
