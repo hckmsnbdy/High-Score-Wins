@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /*Step 1
 Prompt the user for a game score.
@@ -28,23 +27,26 @@ public class HighScoreWins {
         System.out.println("Please enter the game score:");
         String score = scanner.nextLine();
 
-        //Home:Visitor|21:9
-        String[] partName = score.split(Pattern.quote("|"));
-        String partName2 = partName[0];
-        String[] partName3 = score.split(Pattern.quote(":"));
+        // Splitting multiple parts at a time
+        String[] partName = score.split("[|:]");
 
-        //Home:Visitor|21:9
-        String[] partScore = score.split(Pattern.quote(":"));
-        String partScore2 = partScore[0];
-        String[] partScore3 = score.split(Pattern.quote(":"));
+        // Converting strings to integers and defining  variables
+        String team1 = partName[0];
+        String team2 = partName[1];
+        int score1 = Integer.parseInt(partName[2]);
+        int score2 = Integer.parseInt(partName[3]);
 
+        // Printing Teams And Scores
+        System.out.println("Team1 :" + partName[0]);
+        System.out.println("Team2 :" + partName[1]);
+        System.out.println("Team1 Score :" + partName[2]);
+        System.out.println("Team2 Score :" + partName[3]);
 
-        System.out.println("partName[1]:" + partName[1]);
-        System.out.println("partName2:" + partName2);
-        System.out.println("partName3[1]:" + partName3[1]);
-        System.out.println("partScore[2]:" + partScore[2]);
-        System.out.println("partScore2:" + partScore2);
-        System.out.println(" partScore3[2]:" + partScore3[2]);
-
+        //Deciding Who wins(Conditions) and Printing
+        if (score2 > score1){
+            System.out.println("Winner: " + team2);
+        }
+        else
+            System.out.println("Winner: " + team1);
     }
 }
